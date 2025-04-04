@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio ⭐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="top-bar">
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Accueil</a></li>
+            <li><a href="#" onclick="showSection('presentation')">Présentation</a></li>
+            <li><a href="#" onclick="showSection('cv')">CV</a></li>
+            <li><a href="#" onclick="showSection('competences')">Compétences</a></li>
+            <li><a href="#" onclick="showSection('stages')">Stages</a></li>
+            <li><a href="#" onclick="showSection('projets')">Projets</a></li>
+            <li><a href="#" onclick="showSection('veille')">Veille Technologique</a></li>
+            <li><a href="#" onclick="showSection('settings')">Paramètres</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteneur vidéo -->
+    <div id="video-background">
+        <img src="video/newyork.jpg" alt="New York Background" class="background-img">
+    </div>
+
+    <!-- Page d'accueil -->
+    <div class="content-container active" id="home">
+        <h1>Tiago Quenette</h1>
+        <img src="addons/IMG_2695.jpg" alt="Photo de Tiago Quenette" class="profile-img">
+        <h2>Bienvenue sur mon site vitrine !</h2>
+        <p class="center-text" style="text-align: center;">Bonjour, je suis Tiago Quenette.</p>
+        <p class="center-text" style="text-align: center;">Actuellement en première année de BTS SIO au Lycée <a href="https://www.la-joliverie.com/" class="link title-color">La Joliverie</a>.</p>
+    </div>
+
+    <!-- Section Présentation -->
+    <div class="content-container" id="presentation">
+        <h1>Présentation : </h1>
+        <p>Bonjour, je m'appelle Tiago Quenette, j'ai 18 ans et je viens d'Antibes.</p>
+        <p>Actuellement, je poursuis mes études à Nantes à la Joliverie, où je suis en BTS SIO (Services Informatiques aux Organisations) avec une spécialisation en option SISR (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
+        <p>Passionné par l'informatique et les nouvelles technologies, je m'intéresse particulièrement à des domaines comme l'administration réseau, la virtualisation et la cybersécurité. Ces domaines me fascinent et je me consacre à leur approfondissement, car je souhaite contribuer à la sécurité et à l'optimisation des systèmes informatiques.</p>
+        <p>En dehors de mes études, je suis un grand fan de jeux vidéo. Cela m’a permis de développer une solide compréhension de l’environnement numérique et des technologies en général.</p>
+        <p>Je suis très enthousiaste à l'idée de poursuivre mon parcours et de continuer à apprendre de nouvelles compétences pour me préparer à une carrière dans le secteur technologique.</p>
+    </div>
+
+    <!-- Section CV -->
+    <div class="content-container" id="cv">
+        <h1>Curriculum Vitae :</h1>
+        <iframe class="cv-frame" src="addons/CV_Tiago_Quenette.pdf"></iframe>
+    </div>
+
+    <!-- Section Stages -->
+    <div class="content-container" id="stages">
+        <h1>Mes Stages :</h1>
+        
+        <!-- Boutons pour basculer entre les stages -->
+        <div class="button-container">
+            <button onclick="showStage('first-year')">Stage Première Année</button>
+            <button onclick="showStage('second-year')">Stage Deuxième Année</button>
+        </div>
+        
+        <!-- Partie 1 : Stages Première Année -->
+        <div class="stages-section" id="first-year">
+            <h2>Stages Première Année :</h2>
+            <p>J'ai effectué mon stage de première année chez <strong>UGM Communication</strong> à Antibes.</p>
+            <img src="addons/ugm-communication.jpg" alt="UGM Communication" class="stage-img">
+            <p>UGM Communication est une entreprise spécialisée dans la communication et le marketing digital mais elle fait aussi du reseau et du developpement. Durant mon stage, j'ai eu l'opportunité de travailler sur un site internet, notamment en Django</p>
+            <p>Ce stage m'a permis de développer mes compétences en developpement web et de mieux comprendre comment travailler en équipe en entreprise.</p>
+        </div>
+
+        <!-- Partie 2 : Stages Deuxième Année -->
+        <div class="stages-section" id="second-year" style="display: none;">
+            <h2>Stages Deuxième Année :</h2>
+            <p>Aucune information sur les stages passés pour le moment. Cette section sera mise à jour avec mes expériences.</p>
+        </div>
+    </div>
+
+    <!-- Section Projets -->
+    <div class="content-container" id="projets">
+        <h1>Projets :</h1>
+
+        <!-- Boutons pour basculer entre les stages -->
+        <div class="button-container">
+            <button onclick="showProjets('persolist')">Projets Personnels</button>
+            <button onclick="showProjets('acalist')">Projets Academiques</button>
+        </div>
+        
+        <!-- Partie 1 : Projets Personnels -->
+        <div class="projects-section" id="persolist">
+            <h2 style="text-align: center;">Projets Personnels :</h2>
+            <p style="text-align: center;">Pas mis a jour, en attente...</p>
+        </div>
+
+        <!-- Partie 2 : Projets Académiques -->
+        <div class="projects-section" id="acalist" style="display: none;">
+            <h2 style="text-align: center;">Projets Académiques : </h2>
+            <ul class="project-list">
+                <li>Requete SQL</li>
+                <li>Développement d'un site web en PHP/SQL</li>
+                <li>Services aux Entreprises (Projet GSB)</li>
+                <li>Gestion de réseaux Linux</li>
+                <li>Projet Docker (<a href="https://trello.com/b/sNhFh54k/projet-docker" target="_blank">Trello du projet</a>)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section Veille Technologique -->
+    <div class="content-container" id="veille">
+        <h1>Veille Technologique :</h1>
+        <p>En tant qu'étudiant en BTS SIO (option SISR), ma veille technologique se concentre principalement sur des thèmes clés comme :</p>
+        <p><strong>- systèmes de sauvegarde et la protection des données.</strong></p>
+        <p><strong>- La cybersécurité, notamment la détection et la prévention des menaces.</strong></p>
+        <p>Mon objectif est de rester à jour sur les meilleures pratiques et innovations pour devenir un expert en administration réseau et en sécurité informatique.</p>
+    </div>
+
+    <!-- Section Compétences -->
+    <div class="content-container" id="competences">
+        <h1>Compétences :</h1>
+        <div class="skills">
+            <div class="skill">
+                <h2>- Réseau</h2>
+                <div class="skill-bar-container">
+                    <div class="skill-bar">
+                        <div class="skill-level" data-skill="85"></div>
+                    </div>
+                    <span class="percentage">0%</span>
+                </div>
+                <p class="skill-description">Gestion de réseau et création pour réseau par Packet Tracer.</p>
+            </div>
+            <div class="skill">
+                <h2>- Linux</h2>
+                <div class="skill-bar-container">
+                    <div class="skill-bar">
+                        <div class="skill-level" data-skill="100"></div>
+                    </div>
+                    <span class="percentage">0%</span>
+                </div>
+                <p class="skill-description">Commandes Linux et hébergement sous Linux de serveurs web etc.</p>
+            </div>
+            <div class="skill">
+                <h2>- Docker (<a href="https://trello.com/b/sNhFh54k/projet-docker" target="_blank">Projet</a>)</h2>
+                <div class="skill-bar-container">
+                    <div class="skill-bar">
+                        <div class="skill-level" data-skill="60"></div>
+                    </div>
+                    <span class="percentage">0%</span>
+                </div>
+                <p class="skill-description">Gestion de conteneurs avec Docker et Docker Swarm.</p>
+            </div>
+            <div class="skill">
+                <h2>- Développement web</h2>
+                <div class="skill-bar-container">
+                    <div class="skill-bar">
+                        <div class="skill-level" data-skill="75"></div>
+                    </div>
+                    <span class="percentage">0%</span>
+                </div>
+                <p class="skill-description">Création de sites web dynamiques avec PHP/SQL, creation de site comme le blog.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section Paramètres -->
+    <div class="content-container" id="settings">
+        <h1>Paramètres :</h1>
+        <div>
+            <h2>Musique de fond :</h2>
+            <button onclick="toggleMusic()">Activer/Désactiver la musique</button>
+        </div>
+        <div>
+            <h2>Couleur des titres :</h2>
+            <input type="color" id="titleColorPicker" onchange="changeTitleColor(this.value)">
+            <label for="titleColorPicker">Choisir une couleur</label>
+        </div>
+        <div>
+            <h2>Volume de la musique :</h2>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="0.5" onchange="setVolume(this.value)">
+            <label for="volumeControl">Régler le volume</label>
+        </div>
+    </div>
+
+    <script>
+
+        // Fonction pour afficher la section demandée et relancer les animations des barres
+        function showSection(section) {
+            document.querySelectorAll('.content-container').forEach(function(container) {
+                container.classList.remove('active');
+            });
+            document.getElementById(section).classList.add('active');
+
+            // Relancer les animations des barres de compétences
+            if (section === 'competences') {
+                document.querySelectorAll('.skill').forEach(function(skill) {
+                    const bar = skill.querySelector('.skill-level');
+                    const percentage = skill.querySelector('.percentage');
+                    const skillLevel = parseInt(bar.getAttribute('data-skill'), 10);
+
+                    // Réinitialiser la largeur et le pourcentage
+                    bar.style.width = '0';
+                    percentage.textContent = '0%';
+
+                    // Animer la barre et le pourcentage
+                    setTimeout(() => {
+                        bar.style.width = skillLevel + '%';
+
+                        let currentPercentage = 0;
+                        const interval = setInterval(() => {
+                            if (currentPercentage >= skillLevel) {
+                                clearInterval(interval);
+                            } else {
+                                currentPercentage++;
+                                percentage.textContent = currentPercentage + '%';
+                            }
+                        }, 20); // Ajustez la vitesse de l'animation ici
+                    }, 100); // Délai avant de démarrer l'animation
+                });
+            }
+        }
+
+        // Fonction pour afficher la section de stage demandée et masquer l'autre
+        function showStage(stage) {
+            document.getElementById('first-year').style.display = 'none';
+            document.getElementById('second-year').style.display = 'none';
+            document.getElementById(stage).style.display = 'block';
+        }
+
+        // Fonction pour afficher la section de stage demandée et masquer l'autre
+        function showProjets(stage) {
+            document.getElementById('persolist').style.display = 'none';
+            document.getElementById('acalist').style.display = 'none';
+            document.getElementById(stage).style.display = 'block';
+        }
+
+        // Fonction pour activer/désactiver la musique
+        let musicPlaying = true;
+        let audio = new Audio('video/background-music.mp3');
+        audio.volume = 0.5; // Volume par défaut
+
+        function toggleMusic() {
+            if (musicPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            musicPlaying = !musicPlaying;
+        }
+
+        // Fonction pour régler le volume
+        function setVolume(volume) {
+            audio.volume = volume;
+        }
+
+        // Lancer la musique par défaut
+        window.onload = function() {
+            audio.play();
+        };
+
+        // Fonction pour changer la couleur des titres et des barres de compétences
+        function changeTitleColor(color) {
+            // Changer la couleur des titres
+            document.querySelectorAll('h1, h2, .top-bar li a').forEach(function(title) {
+                title.style.color = color;
+            });
+
+            // Changer la couleur des barres de compétences
+            document.querySelectorAll('.skill-level').forEach(function(bar) {
+                bar.style.backgroundColor = color;
+            });
+        }
+
+        // Lancer l'animation des barres de compétences au chargement de la section
+        document.addEventListener('DOMContentLoaded', function () {
+            if (document.querySelector('.content-container.active#competences')) {
+                document.querySelectorAll('.skill-level').forEach(function(bar) {
+                    const skillLevel = bar.getAttribute('data-skill');
+                    bar.style.width = skillLevel + '%';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

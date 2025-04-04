@@ -1,0 +1,593 @@
+/* Style global */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+    background-color: #000; /* Noir pour un contraste parfait */
+}
+
+/* Barre de navigation */
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    opacity: 0;
+    animation: fadeInTopBar 1s forwards;
+}
+
+.top-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.top-bar li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: transparent; /* fond transparent par défaut */
+    border: 1px solid transparent; /* aucune bordure par défaut */
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+}
+
+/* Changement lors du survol */
+.top-bar li a:hover {
+    color: #ffffff; /* texte gris clair */
+    background-color: #0c0c0c67; /* fond gris clair */
+    border-color: #0c0c0c67; /* bordure gris clair */
+}
+
+/* Animations */
+@keyframes fadeInTopBar {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInSection {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Conteneur vidéo */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000; /* Fond noir par défaut */
+}
+
+#video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.background-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    filter: blur(4px); /* Applique un effet de flou */
+    -webkit-filter: blur(4px); /* Applique un effet de flou pour les navigateurs WebKit */
+}
+
+/* Sections */
+.content-container {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 80px auto 20px;
+    width: 80%;
+    max-width: 800px;
+    display: none;
+    opacity: 0;
+    animation: fadeInSection 1s forwards;
+    text-align: center; /* Center align text */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content-container.active {
+    display: block;
+}
+
+/* Couleurs du texte */
+.content-container h1,
+.content-container h2,
+.content-container ul li {
+    color: #ffffff; /* Blanc pour un contraste parfait */
+    text-align: center; /* Center align titles and list items */
+}
+
+.content-container p {
+    color: #ffffff; /* Blanc pour un contraste parfait */
+    text-align: center; /* Center align paragraphs */
+}
+
+/* Paragraphes spécifiques centrés */
+#home p,
+#stages p:first-of-type,
+#presentation p {
+    text-align: center;
+}
+
+/* Projets centrés et alignés */
+#projets ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+#projets li {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+    box-sizing: border-box;
+}
+
+#projets li em {
+    color: #b8b8b8;
+}
+
+#projets p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: center;
+}
+
+/* Accueil spécifique */
+#home h1 {
+    font-size: 3rem;
+    color: #b8b8b8;
+    margin-bottom: 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90%;
+    margin: 0 auto;
+    animation: fadeInSection 1s forwards;
+}
+
+#home h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    animation: fadeInSection 1.5s forwards;
+    text-align: center;
+}
+
+#home p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    line-height: 1.6;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 768px) {
+    #home h1 {
+        font-size: 2.5rem;
+    }
+
+    #home h2 {
+        font-size: 1.2rem;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+}
+
+/* Section Présentation */
+#presentation h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#presentation p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+/* Section CV */
+#cv h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#cv p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+#cv iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    margin-top: 20px;
+    animation: fadeInSection 1.5s forwards;
+}
+
+/* Section Stages */
+#stages h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#stages p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+/* Section Projets */
+#projets h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#projets ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#projets li {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: center;
+}
+
+#projets li em {
+    color: #b8b8b8;
+}
+
+#projets p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+/* Section Veille Technologique */
+#veille h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#veille p {
+    font-size: 1.2rem;
+    color: #dcdcdc;
+    animation: fadeInSection 1.5s forwards;
+    text-align: left;
+}
+
+/* Section Paramètres */
+#settings h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+#settings h2 {
+    font-size: 1.5rem;
+    color: #dcdcdc;
+    margin-bottom: 10px;
+    animation: fadeInSection 1.5s forwards;
+    text-align: center;
+}
+
+#settings button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #575757;
+    color: #ffffff;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 10px auto;
+}
+
+#settings button:hover {
+    background-color: #0c0c0c67;
+}
+
+#settings input[type="color"] {
+    padding: 5px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    margin: 10px auto;
+}
+
+#settings input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#settings input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 5px;
+}
+
+#settings label {
+    font-size: 1rem;
+    color: #dcdcdc;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Section Paramètres recentrée */
+#settings h1,
+#settings h2,
+#settings label {
+    text-align: center;
+}
+
+#settings button,
+#settings input[type="color"],
+#settings input[type="range"] {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Ajouter une ombre portée douce à chaque section */
+.content-container {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles pour les boutons de bascule */
+.button-container {
+    margin-bottom: 20px;
+    text-align: center; /* Center align buttons */
+}
+
+.button-container button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #575757;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #0c0c0c67;
+}
+
+/* Style for stage images */
+.stage-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    animation: fadeInSection 1.5s forwards;
+}
+
+/* Style for profile image */
+.profile-img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    animation: fadeInSection 1.5s forwards;
+}
+
+.center-text {
+    text-align: center;
+}
+
+/* Section Compétences */
+#competences h1 {
+    font-size: 2.5rem;
+    color: #b8b8b8;
+    margin-bottom: 20px;
+    animation: fadeInSection 1s forwards;
+    text-align: center;
+}
+
+.skills {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill h2 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Conteneur de la barre et du pourcentage */
+.skill-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espace entre la barre et le pourcentage */
+}
+
+/* Style pour les barres de progression */
+.skill-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #575757;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Style pour le niveau de compétence */
+.skill-level {
+    height: 100%;
+    background-color: #ffffff;
+    width: 0; /* La largeur initiale est 0 */
+    border-radius: 10px;
+    transition: width 2s ease-out; /* Animation fluide */
+}
+
+/* Style pour les pourcentages */
+.percentage {
+    font-size: 1rem;
+    color: #ffffff;
+    min-width: 50px; /* Largeur minimale pour aligner les pourcentages */
+    text-align: left;
+}
+
+/* Style pour les étiquettes (tooltips) */
+.tooltip {
+    position: absolute;
+    top: -30px; /* Position au-dessus de la barre */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0; /* Caché par défaut */
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out; /* Animation de fade-in */
+}
+
+/* Afficher l'étiquette au survol */
+.skill-level:hover .tooltip {
+    opacity: 1; /* Rendre visible */
+}
+
+/* Animation pour remplir les barres */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Style pour les pourcentages */
+.percentage {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    animation: fadeInSection 1s forwards;
+}
+
+/* Style pour les descriptions des compétences */
+.skill-description {
+    font-size: 1rem;
+    color: #dcdcdc;
+    margin-top: 5px;
+    text-align: left;
+    animation: fadeInSection 1.5s forwards;
+}
+
+
